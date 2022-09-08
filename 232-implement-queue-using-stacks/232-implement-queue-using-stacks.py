@@ -2,6 +2,7 @@ class MyQueue(object):
 
     def __init__(self):
         self.queue=[]
+        self.follow=[]
         
 
     def push(self, x):
@@ -28,9 +29,7 @@ class MyQueue(object):
         """
         :rtype: bool
         """
-        if len(self.queue) == 0:
-            return True
-        return False
+        return not self.queue and not self.follow
         
 
 
