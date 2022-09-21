@@ -7,7 +7,7 @@ class Solution(object):
         for i in range(len(s)):
             if s[i] not in hash1:
                 hash1[s[i]]=t[i]
-                hash2[t[i]]=s[i]
+                hash2[t[i]]=s[i] 
             else:
                 if hash2[t[i]]!= s[i]:
                     return False
