@@ -8,12 +8,16 @@ class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
         if root==None:
             return True
-        return self.daafs(root.left,root.right)
-        
+        self.isvalid=True
+        self.daafs(root.left,root.right)
+        return self.isvalid
         
     def daafs(self,left,right):
         if left== None and right== None:
-            return True
+            return
         if left==None or right==None or right.val!=left.val:
-            return False  
-        return self.daafs(left.left,right.right) and self.daafs(left.right,right.left)
+            self.isvalid=False
+            return   
+        if self.isvalid:
+            self.daafs(left.left,right.right)
+            self.daafs(left.right,right.left)
