@@ -5,12 +5,11 @@ class Solution(object):
         :rtype: List[int]
         """
         n=len(temperatures)
-        stck=[]
+        stack=[]
         output=[0]*n
-        for curr_day, curr_temp in enumerate(temperatures):
-            
-            while stck and temperatures[stck[-1]] < curr_temp:
-                prev_day = stck.pop()
-                output[prev_day]=curr_day-prev_day
-            stck.append(curr_day)
+        for i in range(n):
+            while stack and temperatures[i]>temperatures[stack[-1]]:
+                p_day=stack.pop()
+                output[p_day]=i-p_day
+            stack.append(i)
         return output
